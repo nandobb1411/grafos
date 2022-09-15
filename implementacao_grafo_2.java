@@ -7,24 +7,26 @@ import java.util.Scanner;
 
 
 
-public class grafo_1{
+public class implementacao_grafo_2{
 
     public static void main(String[] args) throws FileNotFoundException {
+
+        //COLOCA O ARQUIVO NA VARIAVEL NOME ARQUIVO 
         String nomearquivo = "/home/fernandobellelis/DataSets/pequenoG.txt";
-        String[][] listaAdj = new String[13][13]; //Matriz [12][12]
-        // int[][] listaVert = new int[13][13]; //Matriz [12][12]
+        String[][] Adj = new String[13][13]; 
+        
         boolean[] listaES = new boolean[13];
         int entradaCount=0;
         int saidaCount=0;
         int countiso = 0;
         int countsaida = 0;
 
-    //Preencher matriz com 0
+    
 
-        for( int linha = 0; linha < listaAdj.length; linha++) {
-            for( int coluna = 0; coluna < listaAdj[linha].length; coluna++) {
-            //Gera um numero qualquer para a matriz
-            listaAdj[linha][coluna] = "0";
+        for( int linha = 0; linha < Adj.length; linha++) {
+            for( int coluna = 0; coluna < Adj[linha].length; coluna++) {
+            
+            Adj[linha][coluna] = "0";
             }
         }
 
@@ -32,8 +34,8 @@ public class grafo_1{
         Scanner scanner = new Scanner(new FileReader(nomearquivo)).useDelimiter("\\s+|\\n");
 
 
-        String Vtotal = scanner.next(); //vertices totais 13
-        String Atotal = scanner.next(); //arestas totais 13
+        String Vtotal = scanner.next(); 
+        String Atotal = scanner.next(); 
 
         while(scanner.hasNext()){
             
@@ -43,20 +45,19 @@ public class grafo_1{
             int linhav = Integer.parseInt(v1);
             int colunav= Integer.parseInt(v2);
 
-            listaAdj[linhav][colunav] = "1";
+            Adj[linhav][colunav] = "1";
         }   
 
 
         System.out.println("Numero total de Vertices: " + Vtotal);
         System.out.println("Numero total de Arestas: " + Atotal);
 
-        System.out.println("Imprimindo matriz de adjacencia: ");
-
-        for (int l = 0; l < listaAdj.length; l++)  {  
-            for (int c = 0; c < listaAdj[0].length; c++)     { 
-                System.out.print(listaAdj[l][c] + " "); //imprime caracter a caracter
+        
+        for (int l = 0; l < Adj.length; l++)  {  
+            for (int c = 0; c < Adj[0].length; c++)     { 
+                System.out.print(Adj[l][c] + " "); 
             }  
-            System.out.println(" "); //muda de linha
+            System.out.println(" "); 
         }
         System.out.println();
         System.out.println("ordem = "+ Vtotal);
@@ -64,14 +65,14 @@ public class grafo_1{
         System.out.println("graus de entrada: ");
         System.out.println();
 
-        for(int p = 0; p<listaAdj.length;p++){
-            for(int w = 0; w<listaAdj[0].length;w++){
-                if(listaAdj[w][p].equals("1")){
+        for(int p = 0; p<Adj.length;p++){
+            for(int w = 0; w<Adj[0].length;w++){
+                if(Adj[w][p].equals("1")){
                     entradaCount++;
 
                 }
 
-                if(listaAdj[p][w].equals("1")){
+                if(Adj[p][w].equals("1")){
                     saidaCount++;
 
                 }
