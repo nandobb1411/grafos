@@ -56,7 +56,7 @@ class DFS {
 
         
  
-        // MatrizAdjecenciaacency matrix
+        
         MatrizAdjecencia = new int[v][v];
 
         while(scanner.hasNext()){
